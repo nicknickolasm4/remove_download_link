@@ -30,9 +30,8 @@
     exit; // Exit if accessed directly
 }
 
-add_filter( 'woocommerce_account_downloads_columns', 'remove_woocommerce_downloads_links' );
-
-function remove_woocommerce_downloads_links( $columns ) {
-    unset( $columns['download-file'] );
-    return $columns;
+add_filter( 'woocommerce_account_menu_items', 'remove_my_account_links' );
+function remove_my_account_links( $menu_links ){
+	unset($menu_links['downloads']); // Remove Downloads
+	return $menu_links;
 }
